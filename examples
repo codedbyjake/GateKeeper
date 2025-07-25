@@ -19,3 +19,16 @@ $wgGatekeeperLinkScoring = [
         'repeatedDomain'    => 8
     ]
 ];
+
+// Whitelist
+$wgGatekeeperWhitelistedDomains = [
+    'wikipedia.org',
+    'wikimedia.org',
+    'archive.org',
+    'web.archive.org',
+    'archive.is',
+    'wayback.archive.org',
+    'wikiquote.org',
+    'mediawiki.org',
+    'github.com'
+];
