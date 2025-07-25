@@ -1,0 +1,29 @@
+{
+    "manifest_version": 2,
+    "name": "Gatekeeper",
+    "version": "0.1.0",
+    "author": [
+        "codedbyjake"
+    ],
+    "descriptionmsg": "gatekeeper-desc",
+    "type": "other",
+    "AutoloadClasses": {
+        "Gatekeeper\\Hooks": "includes/Hooks.php"
+    },
+    "Hooks": {
+        "BeforePageDisplay": "Gatekeeper\\Hooks::onBeforePageDisplay",
+		"EditFilterMergedContent": "Gatekeeper\\Hooks::onEditFilterMergedContent"
+    },
+    "MessagesDirs": {
+        "Gatekeeper": [
+            "i18n"
+        ]
+    },
+    "ResourceModules": {
+        "ext.Gatekeeper.banner": {
+            "scripts": [],
+            "styles": [],
+            "position": "top"
+        }
+    }
+}

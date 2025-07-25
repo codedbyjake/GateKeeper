@@ -1,0 +1,10 @@
+{
+    "@metadata": {
+        "authors": [
+            "codedbyjake"
+        ]
+    },
+    "gatekeeper-desc": "Gatekeeper is an advanced anti-spam tool for MediaWiki",
+	"gatekeeper-spamkeyword": "Edit blocked by Gatekeeper: contains a blacklisted spam keyword.",
+	"gatekeeper-blocklink": "Gatekeeper: New or anonymous users cannot post links outside user pages."
+}
