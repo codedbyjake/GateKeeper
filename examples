@@ -1,0 +1,4 @@
+// Basic keyword blocking
+$wgGatekeeperKeywords = [
+    'whatsapp', 'telegram', 'text me', 'contact me on', 'message me', 'buy on', 'add me on'
+];
