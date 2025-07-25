@@ -6,5 +6,6 @@
     },
     "gatekeeper-desc": "Gatekeeper is an advanced anti-spam tool for MediaWiki",
 	"gatekeeper-spamkeyword": "Edit blocked by Gatekeeper: contains a blacklisted spam keyword",
-	"gatekeeper-blocklink": "Gatekeeper: New or anonymous users cannot post links"
+	"gatekeeper-blocklink": "Gatekeeper: New or anonymous users cannot post links",
+	"gatekeeper-linkscore": "Gatekeeper: Edit blocked due to high spam link score"
 }
