@@ -32,7 +32,11 @@ Optionally, configure GateKeeper using the variables listed below in your `Local
 `$wgGatekeeperMinEditsToPostLinks`
   <br/>Type: `int`
   <br/>Default: `5`
-  <br/>Defines the minimum number of edits a registered user must have made before being allowed to include external links on pages.
+  <br/>Defines the minimum number of edits a registered user must have made before being allowed to include external links on pages.<br/><br/>
+`$wgGatekeeperLinkScoring`
+  <br/>Type: `array`
+  <br/>Default: `See examples`
+  <br/>Enables Gatekeeper’s link scoring system. This checks for things like suspicious TLDs, shortener URLs, repeated links to the same domain, and multiple outbound links. Each rule adds a configurable number of points. If the total score exceeds your set threshold, the edit is blocked.
 
 ## Credits
 [@codedbyjake](https://github.com/codedbyjake)
