@@ -1,4 +1,4 @@
-# GateKeeper
+# GateKeeper - Work in progress
 Gatekeeper is an advanced anti-spam tool for MediaWiki
 
 ## Requirements
