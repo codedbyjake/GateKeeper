@@ -45,16 +45,17 @@ class Hooks {
             return false;
         }
 
-        global $wgGatekeeperKeywords;
-        $spamKeywords = $wgGatekeeperKeywords ?? [];
+        global $wgGatekeeperKeywordsEnabled, $wgGatekeeperKeywords;
 
-        foreach ($spamKeywords as $keyword) {
-            if (strpos($lowerText, $keyword) !== false) {
-                $status->fatal(wfMessage('gatekeeper-spamkeyword'));
-                wfDebugLog('Gatekeeper', "Blocked edit from {$user->getName()} due to keyword: $keyword");
-                return false;
-            }
-        }
+		if (($wgGatekeeperKeywords['enabled'] ?? false) && !empty($wgGatekeeperKeywords['list'])) {
+		foreach ($wgGatekeeperKeywords['list'] as $keyword) {
+        if (strpos($lowerText, $keyword) !== false) {
+            $status->fatal(wfMessage('gatekeeper-spamkeyword'));
+            wfDebugLog('Gatekeeper', "Blocked edit from {$user->getName()} due to keyword: $keyword");
+            return false;
+				}
+			}
+		}
 
         // Link scoring
         global $wgGatekeeperLinkScoring;
