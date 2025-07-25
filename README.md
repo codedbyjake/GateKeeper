@@ -38,5 +38,8 @@ Optionally, configure GateKeeper using the variables listed below in your `Local
   <br/>Default: `See examples`
   <br/>Enables Gatekeeper’s link scoring system. This checks for things like suspicious TLDs, shortener URLs, repeated links to the same domain, and multiple outbound links. Each rule adds a configurable number of points. If the total score exceeds your set threshold, the edit is blocked.
 
+## Enable Logging
+`$wgDebugLogGroups['Gatekeeper'] = __DIR__ . '/extensions/GateKeeper/gatekeeper.log';`
+
 ## Credits
 [@codedbyjake](https://github.com/codedbyjake)
