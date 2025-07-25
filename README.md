@@ -17,7 +17,9 @@ git clone https://github.com/codedbyjake/GateKeeper.git
 In your `LocalSettings.php` add:
 `wfLoadExtension('GateKeeper');`
 
-Optionally, configure GateKeeper using the variables listed below in your `LocalSettings.php.`
+Alternatively, you can simply paste the contents of `gatekeeper-defaults.php` into the bottom of your `LocalSettings.php` to get started quickly with the default configuration.
+
+Optionally, configure GateKeeper using the variables listed below in your `LocalSettings.php`
 
 ## Configuration
 
