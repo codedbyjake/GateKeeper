@@ -7,6 +7,9 @@
     ],
     "descriptionmsg": "gatekeeper-desc",
     "type": "other",
+	"requires": {
+        "MediaWiki": ">= 1.39"
+    },
     "AutoloadClasses": {
         "Gatekeeper\\Hooks": "includes/Hooks.php"
     },
