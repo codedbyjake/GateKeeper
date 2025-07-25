@@ -18,6 +18,8 @@ In your `LocalSettings.php`, add:
 
 Optionally, configure GateKeeper using the variables listed below in your `LocalSettings.php.`
 
+## Configuration
+
 `$wgGatekeeperKeywords` 
   <br/>Type: `array` of strings
   <br/>A simple configuration variable that defines a list of blacklisted spam phrases. Gatekeeper uses this list to scan page edits and block those containing any matching keyword.
