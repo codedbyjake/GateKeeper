@@ -28,11 +28,11 @@ Optionally, configure GateKeeper using the variables listed below in your `Local
 `$wgGatekeeperBlockLinksFromNewUsers` 
   <br/>Type: `bool` 
   <br/>Default: `true`
-  <br/>Enables or disables Gatekeeper’s protection against link posting by new or anonymous users. When enabled, users must meet a minimum edit threshold before they are allowed to include links on most pages. <br/><br/>
+  <br/>Enables or disables Gatekeeper’s protection against link posting by new or anonymous users. When enabled, users must meet a minimum edit threshold before they are allowed to include external links on pages. <br/><br/>
 `$wgGatekeeperMinEditsToPostLinks`
   <br/>Type: `int`
   <br/>Default: `5`
-  <br/>Defines the minimum number of edits a registered user must have made before being allowed to include external links on pages outside the `User:` or `User talk:` namespaces.
+  <br/>Defines the minimum number of edits a registered user must have made before being allowed to include external links on pages.
 
 ## Credits
 [@codedbyjake](https://github.com/codedbyjake)
