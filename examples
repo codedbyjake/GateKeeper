@@ -2,3 +2,15 @@
 $wgGatekeeperKeywords = [
     'whatsapp', 'telegram', 'text me', 'contact me on', 'message me', 'buy on', 'add me on'
 ];
+// Link scoring implementation
+$wgGatekeeperLinkScoring = [
+    'enabled' => true,
+    'threshold' => 10,
+    'rules' => [
+        'suspiciousTLD'     => 5,
+        'shortener'         => 10,
+        'utmParams'         => 5,
+        'multipleLinks'     => 7,
+        'repeatedDomain'    => 8
+    ]
+];
