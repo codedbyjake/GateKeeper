@@ -58,10 +58,14 @@ class Hooks {
 
         // Link scoring
         global $wgGatekeeperLinkScoring;
-        if (($wgGatekeeperLinkScoring['enabled'] ?? false) && preg_match_all('/https?:\/\/[^\s"]+/i', $text, $matches)) {
-            $score = 0;
-            $links = $matches[0];
-            $domains = [];
+        if (
+		isset($wgGatekeeperLinkScoring['enabled']) &&
+		$wgGatekeeperLinkScoring['enabled'] === true &&
+		preg_match_all('/https?:\/\/[^\s"]+/i', $text, $matches)
+		) {
+		$score = 0;
+		$links = $matches[0];
+		$domains = [];
 
             foreach ($links as $link) {
                 $parsed = parse_url($link);
