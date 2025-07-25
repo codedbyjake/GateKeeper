@@ -14,3 +14,21 @@ Gatekeeper is an advanced anti-spam tool for MediaWiki
   <br/>Type: `int`
   <br/>Default: `5`
   <br/>Defines the minimum number of edits a registered user must have made before being allowed to include external links on pages outside the `User:` or `User talk:` namespaces.
+
+## Requirements
+
+- MediaWiki 1.39 or higher
+- PHP 7.4+
+
+# Installation
+Clone or download this repository into your MediaWiki `extensions/` directory: <br/>
+```
+cd /path/to/mediawiki/extensions
+git clone https://github.com/codedbyjake/GateKeeper.git
+```
+
+In your `LocalSettings.php`, add:
+`wfLoadExtension('GateKeeper');`
+
+Optionally, configure GateKeeper using the variables listed above in your `LocalSettings.php.`
+
