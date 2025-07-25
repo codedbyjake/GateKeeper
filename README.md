@@ -23,6 +23,7 @@ Optionally, configure GateKeeper using the variables listed below in your `Local
 
 `$wgGatekeeperKeywords` 
   <br/>Type: `array` of strings
+  <br/>Default: `See examples`
   <br/>A simple configuration variable that defines a list of blacklisted spam phrases. Gatekeeper uses this list to scan page edits and block those containing any matching keyword.
 <br/><br/>
 `$wgGatekeeperBlockLinksFromNewUsers` 
