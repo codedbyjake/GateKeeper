@@ -32,3 +32,6 @@ Optionally, configure GateKeeper using the variables listed below in your `Local
   <br/>Type: `int`
   <br/>Default: `5`
   <br/>Defines the minimum number of edits a registered user must have made before being allowed to include external links on pages outside the `User:` or `User talk:` namespaces.
+
+## Credits
+[@codedbyjake](https://github.com/codedbyjake)
