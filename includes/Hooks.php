@@ -67,11 +67,17 @@ class Hooks {
 		$score = 0;
 		$links = $matches[0];
 		$domains = [];
+		$whitelist = array_map('strtolower', $wgGatekeeperWhitelistedDomains ?? []);
 
             foreach ($links as $link) {
                 $parsed = parse_url($link);
                 $host = $parsed['host'] ?? '';
 
+				 // Skip scoring for whitelisted domains
+				if (in_array($host, $whitelist)) {
+					continue;
+				}
+				
                 // Suspicious TLDs
                 if (preg_match('/\.(ru|xyz|top|click|pw|info|work|loan|gq|cf|ml|tk|ga|men|win|date|cam|party|stream|review|vip|icu|buzz|fit|rest|mom|link|shop|bar|kim|country|webcam|zip|ry|hosting|help|science|ninja|trade|bid|accountant|faith|surf|lol|live|space|press|pro|rocks|today|center|club|website)$/i', $host)) {
                     $score += $wgGatekeeperLinkScoring['rules']['suspiciousTLD'] ?? 0;
