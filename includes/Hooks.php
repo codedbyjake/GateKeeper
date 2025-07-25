@@ -21,32 +21,33 @@ class Hooks {
     }
 
     public static function onEditFilterMergedContent(
-        $context,
-        $content,
-        Status &$status,
-        string $summary,
-        User $user,
-        bool $minoredit
-    ): bool {
-        $text = method_exists($content, 'getText') ? $content->getText() : '';
-        $lowerText = strtolower($text);
+    $context,
+    $content,
+    Status &$status,
+    string $summary,
+    User $user,
+    bool $minoredit
+): bool {
+    $text = method_exists($content, 'getText') ? $content->getText() : '';
+    $lowerText = strtolower($text);
 
-        $title = $context->getTitle();
-        $namespace = $title ? $title->getNamespace() : null;
-        $isUserNamespace = in_array($namespace, [NS_USER, NS_USER_TALK]);
+    $title = $context->getTitle();
+    $namespace = $title ? $title->getNamespace() : null;
 
-        global $wgGatekeeperBlockLinksFromNewUsers, $wgGatekeeperMinEditsToPostLinks;
-        if (
-            ($wgGatekeeperBlockLinksFromNewUsers ?? true) &&
-            !$isUserNamespace &&
-            preg_match('/https?:\/\//i', $text) &&
-            ($user->isAnon() || $user->getEditCount() < ($wgGatekeeperMinEditsToPostLinks ?? 5))
-        ) {
-            $status->fatal('gatekeeper-blocklink');
-            wfDebugLog('Gatekeeper', "Blocked link edit from {$user->getName()} on page {$title->getPrefixedText()}");
-            return false;
-        }
+    global $wgGatekeeperBlockLinksFromNewUsers, $wgGatekeeperMinEditsToPostLinks;
 
+    // Block external links if user is too new or anon, regardless of namespace
+    if (
+        ($wgGatekeeperBlockLinksFromNewUsers ?? true) &&
+        preg_match('/https?:\/\//i', $text) &&
+        ($user->isAnon() || $user->getEditCount() < ($wgGatekeeperMinEditsToPostLinks ?? 5))
+    ) {
+        $status->fatal('gatekeeper-blocklink');
+        wfDebugLog('Gatekeeper', "Blocked external link edit from {$user->getName()} on page {$title->getPrefixedText()}");
+        return false;
+    }
+
+	// LocalSettings.php defined word block
         global $wgGatekeeperKeywords;
         $spamKeywords = $wgGatekeeperKeywords ?? [];
 
