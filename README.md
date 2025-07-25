@@ -6,7 +6,7 @@ Gatekeeper is an advanced anti-spam tool for MediaWiki
 - MediaWiki 1.39 or higher
 - PHP 7.4+
 
-# Installation
+## Installation
 Clone or download this repository into your MediaWiki `extensions/` directory: <br/>
 ```
 cd /path/to/mediawiki/extensions
