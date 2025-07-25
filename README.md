@@ -14,7 +14,7 @@ cd /path/to/mediawiki/extensions
 git clone https://github.com/codedbyjake/GateKeeper.git
 ```
 
-In your `LocalSettings.php`, add:
+In your `LocalSettings.php` add:
 `wfLoadExtension('GateKeeper');`
 
 Optionally, configure GateKeeper using the variables listed below in your `LocalSettings.php.`
