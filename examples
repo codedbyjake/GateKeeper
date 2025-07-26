@@ -20,7 +20,7 @@ $wgGatekeeperLinkScoring = [
     ]
 ];
 
-// Whitelist
+// Whitelist for link scoring
 $wgGatekeeperWhitelistedDomains = [
     'wikipedia.org',
     'wikimedia.org',
