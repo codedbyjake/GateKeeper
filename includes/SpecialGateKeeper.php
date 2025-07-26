@@ -153,6 +153,7 @@ free money</textarea>
 	</td>
 </tr>
 
+
 <div id="gatekeeper-dev-panel" style="display: none; margin-top: 2em; padding: 1em; padding-top:0px; background: #fafafa; border: 1px dashed #ccc;">
 	<h3 style="color: #4B1D78;">Developer Panel</h3>
 	<p style="font-size: 0.95em;">This panel is visible when Developer Mode is enabled.</p>
@@ -161,7 +162,6 @@ free money</textarea>
 	</ul>
 </div>
 
-				
 				<tr style="border-bottom: 1px solid #eee;">
 	<td style="padding: 0.6em;"><label for="accessGroup"><strong>Allowed Access Group</strong></label></td>
 	<td style="padding: 0.6em;">
