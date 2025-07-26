@@ -12,7 +12,8 @@
     },
     "AutoloadClasses": {
         "Gatekeeper\\Hooks": "includes/Hooks.php",
-		"SpecialGateKeeper": "includes/SpecialGateKeeper.php"
+		"SpecialGateKeeper": "includes/SpecialGateKeeper.php",
+		"GateKeeperAjaxHandler": "includes/GateKeeperAjaxHandler.php"
     },
     "Hooks": {
         "BeforePageDisplay": "Gatekeeper\\Hooks::onBeforePageDisplay",
@@ -38,5 +39,8 @@
 			"description": "Access and manage the GateKeeper special page",
 			"group": "administrator"
 		}
-	}
+	},
+	"AjaxExport": [
+	"GateKeeperAjaxSave"
+	]
 }
