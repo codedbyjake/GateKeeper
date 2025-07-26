@@ -239,3 +239,22 @@ $wgHooks['UserLoadRights'][] = function ( $user, &$rights ) {
 	}
 	return true;
 };
+?>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+	const blockLinksSelect = document.getElementById("blockLinks");
+	const minEditsInput = document.getElementById("minEdits");
+
+	function toggleMinEditsState() {
+		const enabled = blockLinksSelect.value === "1";
+		minEditsInput.disabled = !enabled;
+		minEditsInput.style.backgroundColor = enabled ? "" : "#eee";
+	}
+
+	// Initial state
+	toggleMinEditsState();
+
+	// On change
+	blockLinksSelect.addEventListener("change", toggleMinEditsState);
+});
+</script>
