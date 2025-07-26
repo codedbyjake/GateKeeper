@@ -13,6 +13,19 @@ class SpecialGateKeeper extends \SpecialPage {
 	public function execute( $par ) {
 	$this->setHeaders();
 	$user = $this->getUser();
+	
+	if ( $this->getRequest()->wasPosted() && $this->getRequest()->getVal('clearLogs') === '1' ) {
+    $logPath = __DIR__ . '/../gatekeeper.log';
+    if ( file_exists( $logPath ) ) {
+        file_put_contents( $logPath, '' ); // Clear the file
+    }
+    $this->getOutput()->addHTML(
+        '<div style="margin: 1em 0; padding: 1em; background: #dff0d8; color: #3c763d; border-radius: 5px;">
+            Logs cleared.
+        </div>'
+    );
+}
+
 
 	/*
 	
@@ -180,13 +193,24 @@ free money</textarea>
 
 			</tbody>
 		</table>
+<div style="margin-top: 1.5em; display: flex; gap: 1em;">
 
 		<div style="margin-top: 1.5em;">
 			<button type="submit" style="padding: 0.5em 1.2em; background: #4B1D78; color: #fff; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">
 				💾 Save Changes
 			</button>
 		</div>
+		
+		
 	</form>
+	
+	<form method="post" action="" style="margin-top: 1.5em;">
+    <button type="submit" name="clearLogs" value="1" style="padding: 0.5em 1.2em; background: #4169e1; color: #fff; border: none; border-radius: 6px; font-weight: bold; cursor: pointer;">
+      🗑️ Clear Logs
+    </button>
+</form>
+</div>
+
 </div>
 
 	<div style="margin-top: 2em; font-size: 0.95em; color: #666;">
@@ -241,7 +265,7 @@ if ( empty( $logLines ) ) {
 		$logHTML .= "<tr style='border-bottom: 1px solid #eee;'>
 			<td style='padding: 0.5em; color: #555;'>$timestamp</td>
 			<td style='padding: 0.5em;'>$message</td>
-		</tr>";
+		</tr> ";
 	}
 
 	$logHTML .= '</tbody></table>';
