@@ -250,18 +250,6 @@ if ( empty( $logLines ) ) {
 $logHTML .= '</div>';
 $output->addHTML( $logHTML );
 
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
 }
 
 }
