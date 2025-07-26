@@ -88,7 +88,7 @@ class SpecialGateKeeper extends \SpecialPage {
 	</div>
 </div>
 
-<div style="margin-top: 3em; max-width: 900px;">
+<div style="margin-top: 3em; max-width: 900px; padding:0.5em;">
 	<h2 style="color: #4B1D78; border-bottom: 1px solid #ddd; padding-bottom: 0.3em;">GateKeeper Configuration</h2>
 
 	<form method="post" action="">
@@ -182,7 +182,7 @@ if ( file_exists( $logPath ) ) {
 	$logLines = array_reverse( $logLines );
 }
 
-$logHTML = '<div style="max-width: 1000px; padding: 0.5em 1.2em;">
+$logHTML = '<div style="max-width: 1000px; padding: 0.5em 2em;">
 <h2 style="color: #4B1D78; border-bottom: 1px solid #ddd; padding-bottom: 0.3em;">GateKeeper Logs</h2>';
 
 if ( empty( $logLines ) ) {
