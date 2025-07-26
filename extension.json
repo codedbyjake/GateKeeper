@@ -11,7 +11,8 @@
         "MediaWiki": ">= 1.39"
     },
     "AutoloadClasses": {
-        "Gatekeeper\\Hooks": "includes/Hooks.php"
+        "Gatekeeper\\Hooks": "includes/Hooks.php",
+		"SpecialGateKeeper": "includes/SpecialGateKeeper.php"
     },
     "Hooks": {
         "BeforePageDisplay": "Gatekeeper\\Hooks::onBeforePageDisplay",
@@ -28,5 +29,8 @@
             "styles": [],
             "position": "top"
         }
-    }
+    },
+	"SpecialPages": {
+		"GateKeeper": "SpecialGateKeeper"
+	}
 }
