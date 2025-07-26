@@ -23,6 +23,8 @@ Optionally, configure GateKeeper using the variables listed below in your `Local
 
 ## Configuration
 
+Admin Panel: You can access the GateKeeper configuration panel at `Special:GateKeeper` on your MediaWiki installation.
+
 `$wgGatekeeperKeywords` 
   <br/>Type: `array` of strings
   <br/>Default: `None` (See examples)
