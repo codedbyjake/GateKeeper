@@ -156,14 +156,14 @@ free money</textarea>
 					</td>
 				</tr>
 				
-				<tr style="border-bottom: 1px solid #eee;">
-	<td style="padding: 0.6em;"><label for="devMode"><strong>Enable Developer Mode</strong></label></td>
-	<td style="padding: 0.6em;">
-		<select name="devMode" id="devMode" style="padding: 0.3em; width: 150px;">
-			<option value="1">Enabled</option>
-			<option value="0" selected>Disabled</option>
-		</select>
-	</td>
+<tr style="border-bottom: 1px solid #eee;">
+  <td style="padding: 0.6em;"><label for="devMode"><strong>Enable Developer Mode</strong></label></td>
+  <td style="padding: 0.6em;">
+    <label class="switch">
+      <input type="checkbox" name="devMode" id="devMode" value="1">
+      <span class="slider"></span>
+    </label>
+  </td>
 </tr>
 
 
@@ -171,7 +171,9 @@ free money</textarea>
 	<h3 style="color: #4B1D78;">Developer Panel</h3>
 	<p style="font-size: 0.95em;">This panel is visible when Developer Mode is enabled.</p>
 	<ul style="font-size: 0.9em;">
-	# Panel Content
+	
+	
+	
 	</ul>
 </div>
 
@@ -301,13 +303,13 @@ document.addEventListener("DOMContentLoaded", function () {
 	// On change
 	blockLinksSelect.addEventListener("change", toggleMinEditsState);
 });
-// Toggle dev
+// Toggle dev mode
 document.addEventListener("DOMContentLoaded", function () {
 	const devToggle = document.getElementById("devMode");
 	const devPanel = document.getElementById("gatekeeper-dev-panel");
 
 	function toggleDevPanel() {
-		devPanel.style.display = devToggle.value === "1" ? "block" : "none";
+		devPanel.style.display = devToggle.checked ? "block" : "none";
 	}
 
 	if (devToggle) {
@@ -316,3 +318,42 @@ document.addEventListener("DOMContentLoaded", function () {
 	}
 });
 </script>
+<style>
+  /* Toggle switch style */
+  .switch {
+    position: relative;
+    display: inline-block;
+    width: 46px;
+    height: 24px;
+  }
+  .switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+  .slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0; left: 0; right: 0; bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 24px;
+  }
+  .slider:before {
+    position: absolute;
+    content: "";
+    height: 18px;
+    width: 18px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+  }
+  input:checked + .slider {
+    background-color: #4B1D78;
+  }
+  input:checked + .slider:before {
+    transform: translateX(22px);
+  }
+</style>
