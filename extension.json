@@ -32,5 +32,11 @@
     },
 	"SpecialPages": {
 		"GateKeeper": "SpecialGateKeeper"
+	},
+	"Rights": {
+		"gatekeeper-manage": {
+			"description": "Access and manage the GateKeeper special page",
+			"group": "administrator"
+		}
 	}
 }

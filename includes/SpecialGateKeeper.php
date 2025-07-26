@@ -7,14 +7,23 @@ class SpecialGateKeeper extends SpecialPage {
 class SpecialGateKeeper extends \SpecialPage {
 
 	public function __construct() {
-		parent::__construct( 'GateKeeper' );
+	parent::__construct( 'GateKeeper', 'gatekeeper-manage' );
 	}
 
 	public function execute( $par ) {
 	$this->setHeaders();
-	$output = $this->getOutput();
 	$user = $this->getUser();
 
+	/*
+	
+	Permissions testing
+	
+	if ( !$this->getUser()->isAllowed( 'gatekeeper-manage' ) ) {
+    throw new PermissionsError( 'gatekeeper-manage', [ 'gatekeeper-denied' ] );
+	}
+	*/
+	
+	$output = $this->getOutput();
 	$username = htmlspecialchars( $user->getName() );
 
 	$output->addHTML( <<<HTML
@@ -224,4 +233,9 @@ $output->addHTML( $logHTML );
 }
 
 }
-
+$wgHooks['UserLoadRights'][] = function ( $user, &$rights ) {
+	if ( in_array( 'administrator', $user->getEffectiveGroups() ) ) {
+		$rights[] = 'gatekeeper-manage';
+	}
+	return true;
+};
