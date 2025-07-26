@@ -143,6 +143,38 @@ free money</textarea>
 					</td>
 				</tr>
 				
+				<tr style="border-bottom: 1px solid #eee;">
+	<td style="padding: 0.6em;"><label for="devMode"><strong>Enable Developer Mode</strong></label></td>
+	<td style="padding: 0.6em;">
+		<select name="devMode" id="devMode" style="padding: 0.3em; width: 150px;">
+			<option value="1">Enabled</option>
+			<option value="0" selected>Disabled</option>
+		</select>
+	</td>
+</tr>
+
+<div id="gatekeeper-dev-panel" style="display: none; margin-top: 2em; padding: 1em; padding-top:0px; background: #fafafa; border: 1px dashed #ccc;">
+	<h3 style="color: #4B1D78;">Developer Panel</h3>
+	<p style="font-size: 0.95em;">This panel is visible when Developer Mode is enabled.</p>
+	<ul style="font-size: 0.9em;">
+	# Panel Content
+	</ul>
+</div>
+
+				
+				<tr style="border-bottom: 1px solid #eee;">
+	<td style="padding: 0.6em;"><label for="accessGroup"><strong>Allowed Access Group</strong></label></td>
+	<td style="padding: 0.6em;">
+		<select name="accessGroup" id="accessGroup" style="padding: 0.3em; width: 200px;">
+			<option value="sysop" selected>sysop (default)</option>
+			<option value="administrator">administrator</option>
+			<option value="bureaucrat">bureaucrat</option>
+			<option value="user">user</option>
+			<option value="*">All users</option>
+		</select>
+	</td>
+</tr>
+
 				
 				
 
@@ -256,5 +288,19 @@ document.addEventListener("DOMContentLoaded", function () {
 
 	// On change
 	blockLinksSelect.addEventListener("change", toggleMinEditsState);
+});
+// Toggle dev
+document.addEventListener("DOMContentLoaded", function () {
+	const devToggle = document.getElementById("devMode");
+	const devPanel = document.getElementById("gatekeeper-dev-panel");
+
+	function toggleDevPanel() {
+		devPanel.style.display = devToggle.value === "1" ? "block" : "none";
+	}
+
+	if (devToggle) {
+		devToggle.addEventListener("change", toggleDevPanel);
+		toggleDevPanel();
+	}
 });
 </script>
